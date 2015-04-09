@@ -163,7 +163,7 @@ function d3_geo_greatArcInterpolator() {
 $(document).ready(function () {
   $("text").click(function() {
     var text = this.textContent
-    window.location.href = "/countries/" + text
+    window.location.href = "<%= users_path %>"
   })
 })
 </script>
