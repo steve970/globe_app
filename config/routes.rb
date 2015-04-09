@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'authentication#new'
 
   resources :countries, only:[:index]
-  resources :users, only:[:index, :show]
+  resources :users, only:[:show]
 
   get '/sign-up' => 'registrations#new', as: :signup
   post '/sign-up' => 'registrations#create'

@@ -19,7 +19,7 @@
   .graticule-outline {
     fill: none;
     stroke: #333;
-    stroke-width: 1px;
+    stroke-width: 1.5px;
   }
 
   text {
@@ -95,7 +95,7 @@ d3.json("readme.json", function(error, world) {
 
     d3.transition()
         .delay(250)
-        .duration(1000)
+        .duration(2500)
         .tween("rotate", function() {
           var point = centroid(countries[i]);
           rotate.source(projection.rotate()).target([-point[0], -point[1]]).distance();
@@ -160,10 +160,14 @@ function d3_geo_greatArcInterpolator() {
   return interpolate;
 }
 
+var user = '<%= current_user.id %>'
+
 $(document).ready(function () {
   $("text").click(function() {
     var text = this.textContent
-    window.location.href = "<%= users_path %>"
+    window.location.href = "/users/" + user
   })
 })
+
 </script>
+</body>
