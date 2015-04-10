@@ -1,21 +1,11 @@
 class CountriesController < ApplicationController
 
   def index
-    @countries = Country.all
   end
 
-  def create
-    @country = Country.new(country_params)
-    @country.save
-    redirect_to user_path(@user)
+  def show
+    @user = User.find(params[:user_id])
+    @country = @user.countries.find(params[:id])
   end
-
-
-  private
-
-  def country_params
-    params.require(:country).permit(:name)
-  end
-
 
 end

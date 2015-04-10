@@ -4,19 +4,24 @@ class UsersController < ApplicationController
   #   @place = Place.find(params[:place_id])
   # end
 
+  before_action :set_user, only:[:show, :destroy]
+
   def show
-    @user = User.find(params[:id])
-    Place.create!(user_id: params[:id], country_id: params[:country_id])
+    @place = Place.create!(user_id: params[:id], country_id: params[:country_id])
+    @places = @user.places
     @countries = @user.countries
+  end
+
+  def destroy
+    @place = @user.places.find(params[:id])
+    @place.delete
+    redirect_to user_path(@user)
   end
 
   private
 
-  def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+  def set_user
+    @user = User.find(params[:id])
   end
-
-
-
 
 end

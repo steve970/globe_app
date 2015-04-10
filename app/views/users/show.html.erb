@@ -1,11 +1,17 @@
+<% if current_user %>
+  <div class="pull-right"><%= link_to "Sign Out", signout_path %></div>
+<% end %>
 <div>
-<%= "Welcome #{@user.first_name}" %></br>
-<%= "Oh the places you'll go..." %>
+  <%= "Welcome #{@user.first_name}" %></br>
+  <%= link_to "Take her for another spin?", countries_path %>
+  <div>
+    <p><%= "Oh the places you'll go..." %></p>
+  </div>
   <ul>
     <% @countries.each do |country| %>
-
       <li>
-        <%= country.name %>
+        <%= link_to "#{country.name}", user_country_path(@user, country) %>
+          <%= link_to "", user_place_path(@user, @place), method: :delete, data: {confirm: "You can always find a travel buddy!"}, class:"glyphicon glyphicon-trash" %>
       </li>
     <% end %>
   </ul>
