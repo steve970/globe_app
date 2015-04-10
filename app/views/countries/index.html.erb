@@ -31,6 +31,7 @@
 
 </style>
 <body>
+<div>
 <script>
 
 var width = 960,
@@ -88,14 +89,16 @@ d3.json("readme.json", function(error, world) {
     // if (++i >= n) i = 0;
     i = Math.floor((Math.random() * 176) + 1)
 
+
     title.text(countries[i].id);
+    $(".country-id").attr("value", i + 1)
 
     country.transition()
         .style("fill", function(d, j) { return j === i ? "red" : "#259b24"; });
 
     d3.transition()
-        .delay(250)
-        .duration(2500)
+        .delay(500)
+        .duration(5000)
         .tween("rotate", function() {
           var point = centroid(countries[i]);
           rotate.source(projection.rotate()).target([-point[0], -point[1]]).distance();
@@ -159,15 +162,44 @@ function d3_geo_greatArcInterpolator() {
 
   return interpolate;
 }
+/////////////////////THIS IS MY JAVASCRIPT
 
 var user = '<%= current_user.id %>'
 
+// $(document).ready(function () {
+//   $("text").click(function() {
+//     var text = this.textContent
+//     window.location.href = "/users/" + user
+//   })
+// })
+
 $(document).ready(function () {
-  $("text").click(function() {
+  $( "text" ).bind( "click", function() {
     var text = this.textContent
-    window.location.href = "/users/" + user
+    var country_id = $(".country-id").attr("value")
+    window.location.href = "/users/" + user + "?country_id=" + country_id
   })
-})
+});
+
+// $(document).ready(function () {
+//   $("text").click( {
+//     $.post({
+//         url: "/countries",
+//         data: { country: { name: "text" } },
+//         success:(data) ->
+//           alert data.id
+//           return false
+//         error:(data) ->
+//           return false
+//     })
+//   })
+// })
+
+$('html,body').css('cursor','pointer');
+
+
 
 </script>
+<div class="country-id" value="0"></div>
+</div>
 </body>

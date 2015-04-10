@@ -1,11 +1,6 @@
-class Country
+class Country < ActiveRecord::Base
 
-  def initialize
-    @data = JSON.parse(File.open("public/readme.json").read)
-  end
+  has_many :users
+  has_many :places, through: :countries
 
-  def country_name
-    @data["objects"]["countries"]["geometries"].map { |x|  x["id"] }
-  end
-  
 end

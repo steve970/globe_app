@@ -1,14 +1,16 @@
-<%= form_tag signin_path do |f| %>
+<div class=well>
+  <%= form_tag signin_path do |f| %>
 
-  <%= label_tag :email, "Email" %>
-  <%= text_field_tag :email %>
+    <%= label_tag :email, "Email" %>
+    <%= text_field_tag :email %>
 
-  <%= label_tag :password, "Password" %>
-  <%= password_field_tag :password, "" %>
+    <%= label_tag :password, "Password" %>
+    <%= password_field_tag :password, "" %>
 
-  <%= submit_tag "Sign In" %>
+    <%= submit_tag "Sign In" %>
 
-<% end %>
+  <% end %>
 
 
-<%= link_to "Sign Up", sign_up_path %>
+  <%= link_to "Sign Up", sign_up_path %>
+</div>

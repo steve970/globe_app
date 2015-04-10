@@ -16,3 +16,4 @@
 //= require d3
 //= require topojson
 //= require_tree .
+//= require bootstrap-sprockets

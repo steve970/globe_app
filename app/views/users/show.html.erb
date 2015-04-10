@@ -1,8 +1,12 @@
-
 <div>
-  <ul>Places I am going...
-    <li>
-      testing
-    </li>
+<%= "Welcome #{@user.first_name}" %></br>
+<%= "Oh the places you'll go..." %>
+  <ul>
+    <% @countries.each do |country| %>
+
+      <li>
+        <%= country.name %>
+      </li>
+    <% end %>
   </ul>
 </div>

@@ -8,6 +8,11 @@
 </head>
 <body>
 
+  <%= flash[:error] %>
+  <% if current_user %>
+    <%= link_to "Sign Out", signout_path %>
+  <% end %>
+
 <%= yield %>
 
 </body>
