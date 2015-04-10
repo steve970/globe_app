@@ -4,6 +4,7 @@ class AuthenticationController < ApplicationController
 
   def new
     @user = User.new
+    # @images = GettyAPI.new
   end
 
   def create

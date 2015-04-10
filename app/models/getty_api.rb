@@ -8,11 +8,9 @@
 #     response = @conn.get do |req|
 #       req.url "/search/images?fields=id,title,high_res_comp,referral_destinations&sort_order=best&phrase=natural landscape"
 #       req.headers['Content-Type'] = 'application/json'
-#       req.headers['Api-Key'] = token
+#       req.headers['Api-Key'] = 'wu8vuxgzhw9sfqhu7skhzjpp'
 #     end
-#
 #     JSON.parse(response.body, symbolize_names: true)
 #   end
-#
 #
 # end
