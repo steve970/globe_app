@@ -3,7 +3,7 @@
 <style>
 
   .country {
-    fill: #259b24;
+    fill: #9f9c9c;
     stroke: #fff;
     stroke-width: .5px;
     stroke-linejoin: round;
@@ -97,11 +97,11 @@ d3.json("readme.json", function(error, world) {
     $(".country-id").attr("value", i + 1)
 
     country.transition()
-        .style("fill", function(d, j) { return j === i ? "red" : "#259b24"; });
+        .style("fill", function(d, j) { return j === i ? "red" : "#9f9c9c"; });
 
     d3.transition()
         .delay(500)
-        .duration(900)
+        .duration(750)
         .tween("rotate", function() {
           var point = centroid(countries[i]);
           rotate.source(projection.rotate()).target([-point[0], -point[1]]).distance();
