@@ -3,8 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only:[:show, :destroy]
 
   def show
-    @place = Place.create(user_id: params[:id], country_id: params[:country_id])
-    @place.save
+    @place = Place.create!(user_id: params[:id], country_id: params[:country_id])
     @countries = @user.countries
   end
 
