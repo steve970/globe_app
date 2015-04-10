@@ -11,8 +11,7 @@
     <% @countries.each do |country| %>
       <li>
         <%= link_to "#{country.name}", user_country_path(@user, country) %>
-          <%= link_to "", user_place_path(@user, @place), method: :delete, data: {confirm: "You can always find a travel buddy!"}, class:"glyphicon glyphicon-trash" %>
-      </li>
+      </li> 
     <% end %>
   </ul>
 </div>
