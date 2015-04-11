@@ -181,7 +181,7 @@ $(document).ready(function () {
   $( "text" ).bind( "click", function() {
     var text = this.textContent
     var country_id = $(".country-id").attr("value")
-    window.location.href = "/users/" + user + "/?country_id=" + country_id
+    window.location.href = "/users/" + user + "?country_id=" + country_id
   })
 });
 
